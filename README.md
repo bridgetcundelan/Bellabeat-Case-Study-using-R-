@@ -11,7 +11,7 @@ Urška Sršen and Sando Mur founded Bellabeat, a high-tech company that manufa
 ### Business Task:
 Analyze smart device usage data in order to gain insight into how consumers use non-Bellabeat smart devices. These insights will help guide marketing strategy for the company. 
 
-### Ask: Business Objectives:
+### Business Objectives:
 1) What are soe trends in smart device usage?
 2) How could these trends apply to Bellabeat customers?
 3) How could these trends help influence Bellabeat's marketing strategy? 
@@ -19,10 +19,12 @@ Analyze smart device usage data in order to gain insight into how consumers use 
 ### Tools:
 R for Data Cleaning, Data Transformation, Data Analysis, and Data Visualisation.
 
-### Data Set:
-The data set is publicly available on [Kaggle](https://www.kaggle.com/arashnic/fitbit).
-
-### Posted in:
-
+### Prepare the Data:
+1) The data set is publicly available on [Kaggle](https://www.kaggle.com/arashnic/fitbit).
+contains 11 csv of fitbit user data
+2)Reliability of dataset: Only had 35 participants, some sets had fewer (like 14 or 11)
+Sampling bias might apply, it is unclear how participants are choosen. As participants willing to make their activity data public they might be heavier users of FitBit.
+-The dataset does not provide information about gender of the users. Bellabeat is a tech-driven wellness company for women only.
+-The data is from 2016, so it is outdated as fitness trackers matured a lot since then.
 
 
