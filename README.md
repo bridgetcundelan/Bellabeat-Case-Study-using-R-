@@ -1,36 +1,28 @@
-# BellabeatL How Can a Wellness Technology Company Play It Smart? 
+# Bellabeat: How Can a Wellness Technology Company Play It Smart? 
 
 ## A Google Data Analytics Professional Certificate Capstone Project
 
 ![Bellabeat](https://user-images.githubusercontent.com/81607668/127726632-fe6da755-6267-4227-8740-77d3275f446e.png)
 ![image](https://github.com/user-attachments/assets/e2a82ebd-6a2e-40ae-aa8f-792ed4829eba)
 
-This analysis is an optional Capstone project from the [Google Data Analytics Professional Certificate](https://www.coursera.org/professional-certificates/google-data-analytics) on Coursera. 
-
 ### Background:
-
-bellabeat 
-Bellabeat is a high-tech manufacturer of beautifully-designed health-focused smart products for women since 2013. Inspiring and empowering women with knowledge about their own health and habits, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for females.
-
-The co-founder and Chief Creative Officer, Urška Sršen is confident that an analysis of non-Bellebeat consumer data (ie. FitBit fitness tracker usage data) would reveal more opportunities for growth.
+Urška Sršen and Sando Mur founded Bellabeat, a high-tech company that manufactures health-focused smart products. Sršen used her background as an a ist to develop beautifully designed technology that informs and inspires women around the world. Collecting data on activity, sleep, stress, and reproductive health has allowed Bellabeat to empower women with knowledge about their own health and habits. Since it was founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women. They focus on 5 smart products: the Bellabeat app, Leaf, Time, Spring, and the Bellabeat membership. 
 
 ### Business Task:
-Analyze FitBit Fitness Tracker App data to gain insights into how consumers are using the FitBit app and discover trends and insights for Bellabeat marketing team.
+Analyze smart device usage data in order to gain insight into how consumers use non-Bellabeat smart devices. These insights will help guide marketing strategy for the company. 
 
-### Business Objectives:
-- What are the trends identified?
-- How could these trends apply to Bellabeat customers?
-- How could these trends help influence Bellabeat marketing strategy?
+### Ask: Business Objectives:
+1) What are soe trends in smart device usage?
+2) How could these trends apply to Bellabeat customers?
+3) How could these trends help influence Bellabeat's marketing strategy? 
 
 ### Tools:
-Python for Data Cleaning, Data Transformation, Data Visualisation and Data Analysis
+R for Data Cleaning, Data Transformation, Data Analysis, and Data Visualisation.
 
 ### Data Set:
 The data set is publicly available on [Kaggle](https://www.kaggle.com/arashnic/fitbit).
 
 ### Posted in:
-- [Medium: Google Capstone Project: How Can Bellabeat, A Wellness Technology Company Play It Smart?](https://medium.com/analytics-vidhya/this-case-study-is-for-google-data-analytics-gda-capstone-project-course-54047cccf7cb?source=friends_link&sk=2256c12964f13be6a1912c0dcab96fb5)
 
-- [Kaggle: Bellabeat Case Study](https://www.kaggle.com/katiehuangx/case-study-bellabeat-using-python)
 
 
