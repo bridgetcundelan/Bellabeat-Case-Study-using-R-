@@ -208,89 +208,96 @@ daily_activity %>%   <br>
   summary()  <br>
 `#Key findings: max daily steps is 28497 and mean is 6547. For reference- CDC recommends step goal of 10k per day.`  <br>
 
-#Make a viz to determine if there is a correlation between steps taken & calories burned
-ggplot(data = daily_activity, aes(x = TotalSteps, y = Calories)) + 
-  geom_point() + geom_smooth() + labs(title ="Total Steps vs. Calories")
-#I see a positive correlation between total steps taken and the amount of calories burned.
+### Share:
+`#Make a visualization to determine if there is a correlation between steps taken & calories burned`  <br>
+ggplot(data = daily_activity, aes(x = TotalSteps, y = Calories)) +  <br>
+  geom_point() + geom_smooth() + labs(title ="Total Steps vs. Calories")  <br>
+`#The visualization shows a positive correlation between total steps taken and the amount of calories burned.`  <br>
 
-#What day of week are users most active?
-#First need to convert the date column from string to Date format in "daily_activity"data frame
-daily_activity <- daily_activity %>%
-  mutate(ActivityDate = mdy(ActivityDate),  # Convert to Date
-         Weekday = weekdays(ActivityDate)) #add a new column for day of week
+![Total Steps vs Calories 2](https://github.com/user-attachments/assets/9bb04dfc-0c1a-4c72-98d1-d7ea4db2e424)
 
+`#What day of week are users most active?`  <br>
+`#First need to convert the date column from string to Date format in "daily_activity"data frame`  <br>
+daily_activity <- daily_activity %>%`  <br>
+  mutate(ActivityDate = mdy(ActivityDate),  `# Convert to Date`  <br>
+         Weekday = weekdays(ActivityDate)) `#add a new column for day of week`  <br>
 
-#Summarize steps per Weekday
-summary_data <- daily_activity %>%
-  group_by(Weekday) %>%
-  summarize(StepSummary = mean(TotalSteps), .groups = 'drop')  # Summarize and drop grouping
-# View the summarized data- this showed my data in a tibble
-  print(summary_data)
+`#Summarize steps per Weekday`  <br>
+summary_data <- daily_activity %>%  <br>
+  group_by(Weekday) %>%  <br>
+  summarize(StepSummary = mean(TotalSteps), .groups = 'drop')  `# Summarize and drop grouping`  <br>
+`#View the summarized data in a tibble`  <br>
+  print(summary_data)  <br>
 
-#Here is the summarized step data in a tibble (this is not code, just for notes.) Most steps Saturday
-  # A tibble: 7 × 2
-  #This also saved a new dataframe called "summary_data"
-  # A tibble: 7 × 2
-  Weekday   StepSummary
-  <chr>           <dbl>
-    1 Friday          6738.
-  2 Monday          7119.
-  3 Saturday        7090.
-  4 Sunday          6058.
-  5 Thursday        6847.
-  6 Tuesday         4915.
-  7 Wednesday       7511.
+`#Here is the summarized step data in a tibble. Most steps were taken on Wednesaday.`  <br>
+  `#This also saved a new dataframe called "summary_data"`  <br>
+  `#A  tibble: 7 × 2`  <br>
+  Weekday   StepSummary  <br>
+  <chr>           <dbl>  <br>
+    1 Friday          6738.  <br>
+  2 Monday          7119.  <br>
+  3 Saturday        7090. <br>
+  4 Sunday          6058.  <br>
+  5 Thursday        6847.  <br>
+  6 Tuesday         4915.  <br>
+  7 Wednesday       7511.  <br>
   
-#Now that we have gotten the steps taken for each day of the week. I will make a visualization to better understand the data.
-ggplot(summary_data, aes(x = reorder(Weekday, StepSummary), y = StepSummary, fill = Weekday)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Total Steps per Day of the Week",
-       x = "Day of the Week",
-       y = "Total Steps") +
-  scale_y_continuous(labels = comma) +  # Format y-axis numbers with commas
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
+`#Now that we have gotten the steps taken for each day of the week, I will make a visualization to better understand the data.`  <br>
+ggplot(summary_data, aes(x = reorder(Weekday, StepSummary), y = StepSummary, fill = Weekday)) +  <br>
+  geom_bar(stat = "identity") +  <br>
+  labs(title = "Total Steps per Day of the Week",  <br>
+       x = "Day of the Week",  <br>
+       y = "Total Steps") +  <br>
+  scale_y_continuous(labels = comma) +  # Format y-axis numbers with commas  <br>
+  theme_minimal() +  <br>
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  `#Rotate x-axis labels for better readability`  <br>
 
-#Now will look at Hourly data- what time of day are people most active? Using hourly intensities. 
-#First need to split ActivityHour column into date and hour
-# Split the datetime column into date and hour
-hourly_data <- hourly_data %>%
-  mutate(ActivityHour = as.POSIXct(ActivityHour, format = "%m/%d/%Y %I:%M:%S %p"))
-# Add a new column for the hour
-hourly_data <- hourly_data %>%
-  mutate(Hour = hour(ActivityHour))  # Extract the hour using lubridate
-
-# Summarize average intensity per hour in new data frame "summary_hourly_intensities"
-summary_hourly_intensities <- hourly_data %>%
-  group_by(Hour) %>%
-  summarize(TotalIntensity = mean(TotalIntensity), .groups = 'drop')
-
-#Create a plot to summarize average intensities per hour
-ggplot(summary_hourly_intensities, aes(x = Hour, y = TotalIntensity)) +
-  geom_line(color = "blue", size = 1) +  # Line for average intensity
-  geom_point(color = "blue", size = 2) +  # Points for each average
-  labs(title = "Average Intensity by Hour",
-       x = "Hour of the Day",
-       y = "Average Intensity") +
-  theme_minimal()
-#This graph shows spikes around noon, 7PM and dips substantially. People likely working out at lunch hour and after work
-
-#Taking a step further, is there a correlation between calories burned for hour?
-summary_hourly_calories<- hourly_data %>%
-  group_by(Hour) %>%
-  summarize(Calories = mean(Calories), .groups = 'drop')
-#Create a plot to summarize average calories burned per hour
-ggplot(summary_hourly_calories, aes(x = Hour, y = Calories)) +
-  geom_line(color = "red", size = 1) +  # Line for average calories burned 
-  geom_point(color = "red", size = 2) +  # Points for each average
-  labs(title = "Average Calories burned by Hour",
-       x = "Hour of the Day",
-       y = "Average Calories Burned") +
-  theme_minimal()
-#Same peaks and dips as average intensities per hour. This shows 
+![Total Steps per Day Updated](https://github.com/user-attachments/assets/027865ce-593e-451b-b882-17274dc46c65)
 
 
-#TRYING SOMETHING
+`#Now will look at hourly data to determine what time of day are people most active? Using column hourly intensities.`  <br>
+`#First need to split ActivityHour column into date and hour`  <br>
+`#Split the datetime column into date and hour`  <br>
+hourly_data <- hourly_data %>%  <br>
+  mutate(ActivityHour = as.POSIXct(ActivityHour, format = "%m/%d/%Y %I:%M:%S %p"))  <br>
+`#Add a new column for the hour`  <br>
+hourly_data <- hourly_data %>%  <br>
+  mutate(Hour = hour(ActivityHour))  `#Extract the hour using lubridate` <br>
+
+`#Summarize average intensity per hour in new data frame called "summary_hourly_intensities"`  <br>
+summary_hourly_intensities <- hourly_data %>%  <br>
+  group_by(Hour) %>%  <br>
+  summarize(TotalIntensity = mean(TotalIntensity), .groups = 'drop')  <br>
+
+`#Create a plot to summarize average intensities per hour`  <br>
+ggplot(summary_hourly_intensities, aes(x = Hour, y = TotalIntensity)) +  <br>
+  geom_line(color = "blue", size = 1) +  # Line for average intensity  <br>
+  geom_point(color = "blue", size = 2) +  # Points for each average  <br>
+  labs(title = "Average Intensity by Hour",  <br>
+       x = "Hour of the Day",  <br>
+       y = "Average Intensity") +  <br>
+  theme_minimal()  <br>
+`#This graph shows spikes around noon and 7PM, and then dips substantially. People likely working out during lunch hour and after work.`  <br>
+![Intensities by Hour](https://github.com/user-attachments/assets/304d0e62-65c6-491f-95ec-88a6c2901ad8)  <br>
+
+
+`#Taking a step further, is there a correlation between calories burned and hour of day?`  <br>
+summary_hourly_calories<- hourly_data %>%  <br>
+  group_by(Hour) %>%  <br>
+  summarize(Calories = mean(Calories), .groups = 'drop')  <br>
+`#Create a plot to summarize average calories burned per hour`  <br>
+ggplot(summary_hourly_calories, aes(x = Hour, y = Calories)) +  <br>
+  geom_line(color = "red", size = 1) +  `# Line for average calories burned`  <br>
+  geom_point(color = "red", size = 2) +  `# Points for each average`  <br>
+  labs(title = "Average Calories burned by Hour",  <br>
+       x = "Hour of the Day",  <br>
+       y = "Average Calories Burned") +  <br>
+  theme_minimal()  <br>
+`#Same peaks and dips as average intensities per hour. Since the graph his similar spikes, it suggests a relationship between average intensity and calories burned.`  <br>
+![Calories Burned Per Hour](https://github.com/user-attachments/assets/e549f5a9-3df9-451e-ab08-8f7834198b24)  <br>
+
+
+#TRYING SOMETHING (MAYBE DONT INCLUDE) 
 # Create a combined plot
 ggplot() +
   geom_line(data = summary_hourly_calories, aes(x = Hour, y = Calories, color = "Calories"), size = 1) +
@@ -303,62 +310,61 @@ ggplot() +
        color = "Legend") +
   theme_minimal() +
   scale_color_manual(values = c("Calories" = "red", "Intensity" = "blue")) +  # Custom colors
-  scale_x_continuous(breaks = 0:23)  # Ensure all hours are shown on the x-axis
+  scale_x_continuous(breaks = 0:23)  # Ensure all hours are shown on the x-axis  <br>
 
 
-#Activity level by category
-#Distribution of users based on daily step count. CDC recommendations chart. 
-##TRYING SOMETHING NEW 
-steps <- daily_activity %>% 
-  group_by(Id) %>% 
-  summarise(
-    total_steps = mean(TotalSteps, na.rm = TRUE), 
-    avg_daily_cal = mean(Calories, na.rm = TRUE)
-  ) %>%
-  mutate(user_type = case_when(
-    total_steps < 5000 ~ "sedentary",
-    total_steps >= 5000 & total_steps < 7499 ~ "lightly active",
-    total_steps >= 7499 & total_steps < 9999 ~ "fairly active",
-    total_steps >= 10000 ~ "very active"
-  ))
-# Display the first few rows of the resulting dataset
-head(steps)
-# A tibble: 6 × 4 showung results
-Id total_steps avg_daily_cal user_type    
-<dbl>       <dbl>         <dbl> <chr>        
-  1 1503960366      11641.         1796. very active  
-2 1624580081       4226.         1353. sedentary    
-3 1644430081       9275.         2916. fairly active
-4 1844505072       3641.         1616. sedentary    
-5 1927972279       2181.         2254  sedentary    
-6 2022484408      12175.         2475. very active  
+`#Activity level by category showing distribution of users based on average daily step count.`
+`#Based on CDC recommendations of step count per day, I will use the following step counts to divide users into 5 categories`  <br>
+![Picture1](https://github.com/user-attachments/assets/e1112b25-e993-41d5-a367-cb5a0747df19)  <br>`
 
-user_type_sum <- steps %>%
-  group_by(user_type) %>%
-  summarise(total= n()) %>%
-  mutate(total_percent = round(total * 100 / sum(total), 1)) 
-print(user_type_sum)
-#Here is a tibble showing summary of user types
-# A tibble: 4 × 3
-user_type      total total_percent
-<chr>          <int>         <dbl>
-  1 fairly active      9          25.7
-2 lightly active     6          17.1
-3 sedentary         14          40  
-4 very active        6          17.1
+steps <- daily_activity %>%  <br>
+  group_by(Id) %>%   <br>
+  summarise(  <br>
+    total_steps = mean(TotalSteps, na.rm = TRUE),   <br>
+    avg_daily_cal = mean(Calories, na.rm = TRUE)  <br>
+  ) %>%  <br>
+  mutate(user_type = case_when(  <br>
+    total_steps < 5000 ~ "sedentary",  <br>
+    total_steps >= 5000 & total_steps < 7499 ~ "lightly active",  <br>
+    total_steps >= 7499 & total_steps < 9999 ~ "fairly active",  <br>
+    total_steps >= 10000 ~ "very active"  <br>
+  ))  <br>
+`#Display the first few rows of the resulting dataset`  <br>
+head(steps)  <br>
+`#A tibble: 6 × 4 showung results`  <br>
+Id total_steps avg_daily_cal user_type    <br>  
+<dbl>       <dbl>         <dbl> <chr>    <br>     
+  1 1503960366      11641.         1796. very active   <br> 
+2 1624580081       4226.         1353. sedentary      <br>
+3 1644430081       9275.         2916. fairly active  <br>
+4 1844505072       3641.         1616. sedentary      <br>
+5 1927972279       2181.         2254  sedentary    <br> 
+6 2022484408      12175.         2475. very active   <br>
 
-#Pie chart with user type by activity
-ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
-  geom_bar(stat = "identity", width = 1, color = "white") +
-  coord_polar("y", start = 0) +
-  scale_fill_brewer(palette = 'Blues') +
-  theme_void() +  # Removes background, grid, numeric labels
-  theme(plot.title = element_text(hjust = 0.5, size = 22, face = "bold")) +
-  geom_text(aes(label = paste0(total_percent, "%")), position = position_stack(vjust = 0.5), color = "black") +  # Display rounded percentage
-  labs(title = "User Type by Activity") + 
-  guides(fill = guide_legend(title = "Activity Type"))
+user_type_sum <- steps %>%  <br>
+  group_by(user_type) %>%  <br>
+  summarise(total= n()) %>%  <br>
+  mutate(total_percent = round(total * 100 / sum(total), 1))  <br>
+print(user_type_sum)  <br>
+#Here is a tibble showing summary of user types  <br>
+`#A tibble: 4 × 3`  <br>
+user_type      total total_percent  <br>
+<chr>          <int>         <dbl>  <br>
+  1 fairly active      9          25.7  <br>
+2 lightly active     6          17.1  <br>
+3 sedentary         14          40    <br>
+4 very active        6          17.1  <br>
 
-#majority of Bellabeat users are considered sedentary based on step count (under
-#5k a day. Bellabeat could set step count goals for users and send out reminders
-#when they need to get up and walk to hit their goals. 
-![image](https://github.com/user-attachments/assets/9842954a-e84e-4200-9dfc-10a8ff9d72cf)
+`# Create a pie chart to visualize user type by activity`  <br>
+ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +  <br>
+  geom_bar(stat = "identity", width = 1, color = "white") +  <br>
+  coord_polar("y", start = 0) +  <br>
+  scale_fill_brewer(palette = 'Blues') +  <br>
+  theme_void() +  # Removes background, grid, numeric labels  <br>
+  theme(plot.title = element_text(hjust = 0.5, size = 22, face = "bold")) +  <br>
+  geom_text(aes(label = paste0(total_percent, "%")), position = position_stack(vjust = 0.5), color = "black") +  `# Display rounded percentage`  <br>
+  labs(title = "User Type by Activity") +  <br>
+  guides(fill = guide_legend(title = "Activity Type"))  <br>
+
+`#majority of Bellabeat users are considered sedentary based on step count (under 5k a day) Bellabeat could set step count goals for users and send out reminders when they need to get up and walk to hit their goals.`  <br>
+![User Type by Activity](https://github.com/user-attachments/assets/6e175223-bbb7-45d4-a4a6-e6b02c57b3cd)
