@@ -209,9 +209,9 @@ daily_activity %>%   <br>
 `#Key findings: max daily steps is 28497 and mean is 6547. For reference- CDC recommends step goal of 10k per day.`  <br>
 
 `#What day of week are users most active?`  <br>
-`#First need to convert the date column from string to Date format in "daily_activity"data frame`  <br>
+`#First need to convert the date column from string to Date format in "daily_activity"data frame`<br>
 daily_activity <- daily_activity %>%`  <br>
-  mutate(ActivityDate = mdy(ActivityDate),  `# Convert to Date`  <br>
+  mutate(ActivityDate = mdy(ActivityDate),  `# Convert to Date`<br> 
          Weekday = weekdays(ActivityDate)) `#add a new column for day of week`  <br>
 
 `#Summarize steps per Weekday`  <br>
@@ -221,9 +221,9 @@ summary_data <- daily_activity %>%  <br>
 `#View the summarized data in a tibble`  <br>
   print(summary_data)  <br>
 
-`#Here is the summarized step data in a tibble. Most steps were taken on Wednesaday.`  <br>
+`#Here is the summarized step data in a tibble. Most steps were taken on Wednesaday.`<br>
 `#A visualization is provided in the share sub-section below.
-  `#This also saved a new dataframe called "summary_data"`  <br>
+  `#This also saved a new dataframe called summary_data`<br>
   `#A  tibble: 7 × 2`  <br>
   Weekday   StepSummary  <br>
   <chr>           <dbl>  <br>
@@ -362,4 +362,20 @@ ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
 ![User Type by Activity](https://github.com/user-attachments/assets/6e175223-bbb7-45d4-a4a6-e6b02c57b3cd)
 
 ### Act <br>
+Guiding questions 
+•	●  What is your nal conclusion based on your analysis? 
+•	●  How could your team and business apply your insights? 
+•	●  What next steps would you or your stakeholders take based on your ndings? 
+•	●  Is there additional data you could use to expand on your ndings? 
+Key tasks 
+•	●  Create your po folio. 
+•	●  Add your case study. 
+•	●  Practice presenting your case study to a friend or family member. 
+Deliverable 
+Your top high-level insights based on your analysis
+![image](https://github.com/user-attachments/assets/c1d4695f-ae13-4c2f-a90f-10acce871026)
 
+Reminder- Business Objectives:
+1) What are some trends in smart device usage?
+2) How could these trends apply to Bellabeat customers?
+3) How could these trends help influence Bellabeat's marketing strategy? 
