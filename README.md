@@ -35,7 +35,7 @@ This Kaggle data set contains personal tness tracker from thirty FitBit users. E
 ### Process: 
 I used R due to its ability to handle large data sets, as well as the ability to process, analyze, and visualize in the same platform. The steps I took to clean & process the data are outlined below. <br>
 
-`# install packages to clean & analyze:` <br>
+`# install packages to clean & analyze` <br>
 install.packages("tidyverse") <br>
 install.packages("lubridate") <br>
 install.packages("dplyr") <br>
@@ -44,7 +44,7 @@ install.packages("ggplot2") <br>
 install.packages("skimr") <br>
 install.packages("janitor") <br>
 
-`# install corresponding libraries:`
+`# install corresponding libraries` <br>
 library(tidyverse) <br>
 library(lubridate) <br>
 library(dplyr) <br>
@@ -54,10 +54,10 @@ library(readr) <br>
 library(skimr) <br>
 library(janitor) <br>
 
-`# determine working directory to find file paths for .csv files to upload`
+`# determine working directory to find file paths for .csv files to upload` <br>
 getwd() <br>
 
-`#import files into R studio:`
+`#import files into R studio` <br>
 dailyActivity_merged <- read.csv("dailyActivity_merged.csv") <br>
 heartrate_seconds_merged <- read.csv("heartrate_seconds_merged.csv") <br>
 hourlyCalories_merged <- read.csv("hourlyCalories_merged.csv") <br>
@@ -70,116 +70,116 @@ minuteSleep_merged <- read.csv("minuteSleep_merged.csv") <br>
 minuteStepsNarrow_merged <- read.csv("minuteStepsNarrow_merged.csv") <br>
 weightLogInfo_merged <- read.csv("weightLogInfo_merged.csv") <br>
 
-#preview data frames
-head(dailyActivity_merged) 
-head(heartrate_seconds_merged)
-head(hourlyCalories_merged)
-head(hourlyIntensities_merged)
-head(hourlySteps)
-head(minuteCaloriesNarrow_merged)
-head(minuteIntensitiesNarrow_merged)
-head(minuteMETsNarrow_merged)
-head(minuteSleep_merged)
-head(minuteStepsNarrow_merged)
-head(weightLogInfo_merged)
+`#preview data frames` <br>
+head(dailyActivity_merged) <br>
+head(heartrate_seconds_merged) <br>
+head(hourlyCalories_merged) <br>
+head(hourlyIntensities_merged) <br>
+head(hourlySteps) <br>
+head(minuteCaloriesNarrow_merged) <br>
+head(minuteIntensitiesNarrow_merged) <br>
+head(minuteMETsNarrow_merged) <br>
+head(minuteSleep_merged) <br>
+head(minuteStepsNarrow_merged) <br>
+head(weightLogInfo_merged) <br>
 
-#View data frames
-View(dailyActivity_merged) 
-View(heartrate_seconds_merged)
-View(weightLogInfo_merged)
+`#View data frames` <br>
+View(dailyActivity_merged) <br>
+View(heartrate_seconds_merged) <br>
+View(weightLogInfo_merged) <br>
 
-#rename "dailyActivity_merged" data frame so it is consistent with other data frame names
-daily_activity <- dailyActivity_merged
-rm(dailyActivity_merged)  # Remove the old data frame since it's no longer needed
+`#rename "dailyActivity_merged" data frame so it is consistent with other data frame names` <br>
+daily_activity <- dailyActivity_merged <br>
+rm(dailyActivity_merged)  `# Remove the old data frame since it's no longer needed` <br>
 
-#rename "heartrate_seconds_merged" data frame so it is consistent with other data frame names
-heartrate_seconds <- heartrate_seconds_merged
-rm(heartrate_seconds_merged) # Remove the old data frame since it's no longer needed
+`#rename "heartrate_seconds_merged" data frame so it is consistent with other data frame names` <br>
+heartrate_seconds <- heartrate_seconds_merged <br>
+rm(heartrate_seconds_merged) `# Remove the old data frame since it's no longer needed` <br>
 
-#rename "weightLogInfo_merged" data frame so it is consistent with other data frame names
-weight_log_info <- weightLogInfo_merged
-rm(weightLogInfo_merged) # Remove the old data frame since it's no longer needed
+`#rename "weightLogInfo_merged" data frame so it is consistent with other data frame names` <br>
+weight_log_info <- weightLogInfo_merged <br>
+rm(weightLogInfo_merged) # Remove the old data frame since it's no longer needed <br>
 
-#Hourly data becomes new data frame, "hourly_data". Merge data together using primary key "Id" & "ActivityHour"
-View(hourlyCalories_merged)
-View(hourlyIntensities_merged)
-View(hourlySteps_merged)
-# Full Join
-hourly_data <- hourlyCalories_merged %>%
-  full_join(hourlyIntensities_merged, by = c("Id", "ActivityHour")) %>%
-  full_join(hourlySteps_merged, by = c("Id", "ActivityHour"))
-print(hourly_data)
-#Remove original data sets now that they are merged
-rm(hourlyCalories_merged)
-rm(hourlyIntensities_merged)
-rm(hourlySteps_merged)
+`#Hourly data becomes new data frame, "hourly_data". Merge data together using primary key "Id" & "ActivityHour"` <br>
+View(hourlyCalories_merged) <br>
+View(hourlyIntensities_merged) <br>
+View(hourlySteps_merged)<br>
 
-#minuteSleep_merged- rename column name "date" to "ActivityDate" to match other data sets
-colnames(minuteSleep_merged)[colnames(minuteSleep_merged) == "date"] <- "ActivityMinute"
-#Minute data becomes new dataframe, "minute_data". Merge data together using primary key "Id" & "ActivityHour"
-View(minuteCaloriesNarrow_merged)
-View(minuteIntensitiesNarrow_merged)
-View(minuteMETsNarrow_merged)
-View(minuteSleep_merged)
-View(minuteStepsNarrow_merged)
-# Full Join
-minute_data <- minuteCaloriesNarrow_merged %>%
-  full_join(minuteIntensitiesNarrow_merged, by = c("Id", "ActivityMinute")) %>%
-  full_join(minuteMETsNarrow_merged, by = c("Id", "ActivityMinute")) %>% 
-  full_join(minuteSleep_merged, by = c("Id", "ActivityMinute")) %>% 
-  full_join(minuteStepsNarrow_merged, by = c("Id", "ActivityMinute"))
-print(minute_data)
+`# Full Join all data frames using hourly data` <br>
+hourly_data <- hourlyCalories_merged %>% <br>
+  full_join(hourlyIntensities_merged, by = c("Id", "ActivityHour")) %>% <br>
+  full_join(hourlySteps_merged, by = c("Id", "ActivityHour")) <br>
+print(hourly_data) <br>
 
-#Remove unneeded data frames after merging
-rm(hourlyCalories_merged) 
-rm(hourlyIntensities_merged)
-rm(hourlySteps_merged)
-rm(minuteCaloriesNarrow_merged)
-rm(minuteIntensitiesNarrow_merged)
-rm(minuteMETsNarrow_merged)
-rm(minuteSleep_merged)
-rm(minuteStepsNarrow_merged)
+`#Remove original data sets now that they are merged` <br>
+rm(hourlyCalories_merged) <br>
+rm(hourlyIntensities_merged) <br>
+rm(hourlySteps_merged) <br>
 
-#verify number of unique users 
-n_unique(daily_activity$Id) #35
-n_unique(heartrate_seconds$Id) #14 too few participants, so will drop this data set,(less than 30 not reliable)
-n_unique(hourly_data$Id) #34
-n_unique(minute_data$Id) #34
-n_unique(weight_log_info$Id) #11 too few participants,so will drop this data set (less than 30 not reliable)
+`#minuteSleep_merged- rename column name "date" to "ActivityDate" to match other data sets` <br>
+colnames(minuteSleep_merged)[colnames(minuteSleep_merged) == "date"] <- "ActivityMinute" <br>
+`#Minute data becomes new dataframe, "minute_data". Merge data together using primary key "Id" & "ActivityHour"` <br>
+View(minuteCaloriesNarrow_merged) <br>
+View(minuteIntensitiesNarrow_merged) <br>
+View(minuteMETsNarrow_merged) <br>
+View(minuteSleep_merged) <br>
+View(minuteStepsNarrow_merged) <br>
 
-rm(heartrate_seconds)
-rm(weight_log_info)
+`# Full Join all data frames using minute data` <br>
+minute_data <- minuteCaloriesNarrow_merged %>% <br>
+  full_join(minuteIntensitiesNarrow_merged, by = c("Id", "ActivityMinute")) %>% <br>
+  full_join(minuteMETsNarrow_merged, by = c("Id", "ActivityMinute")) %>% <br>
+  full_join(minuteSleep_merged, by = c("Id", "ActivityMinute")) %>% <br>
+  full_join(minuteStepsNarrow_merged, by = c("Id", "ActivityMinute")) <br>
+print(minute_data) <br>
 
-#check for duplicates in data sets
-sum(duplicated(daily_activity)) #0 duplicates
-sum(duplicated(hourly_data)) #0 duplicates
-sum(duplicated(minute_data)) #525 duplicates
+`#Remove unneeded data frames after merging` <br>
+rm(hourlyCalories_merged) <br>
+rm(hourlyIntensities_merged) <br>
+rm(hourlySteps_merged) <br>
+rm(minuteCaloriesNarrow_merged) <br>
+rm(minuteIntensitiesNarrow_merged) <br>
+rm(minuteMETsNarrow_merged) <br>
+rm(minuteSleep_merged) <br>
+rm(minuteStepsNarrow_merged) <br>
 
-#Remove all duplicates and missing data
-daily_activity <- daily_activity %>%
-  distinct() %>%
-  drop_na()
-hourly_data <- hourly_data %>%
-  distinct() %>%
-  drop_na()
-minute_data <- minute_data %>%
-  distinct() %>%
-  drop_na()
+`#verify number of unique users` <br>
+n_unique(daily_activity$Id) `#35 unique Ids` <br>
+n_unique(heartrate_seconds$Id) `#14 unique Ids--too few participants, so will drop this data set,(less than 30 not reliable)` <br>
+n_unique(hourly_data$Id) `#34 unique Ids` <br>
+n_unique(minute_data$Id) `#34 unique Ids` <br>
+n_unique(weight_log_info$Id) `#11 unique Ids --- too few participants,so will drop this data set (less than 30 not reliable)` <br>
 
-#Ran this code to double check & there are now no duplicates
-sum(duplicated(dailyActivity_merged)) #0 duplicates
-sum(duplicated(hourly_data)) #0 duplicates
-sum(duplicated(minute_data)) #0 duplicates
+rm(heartrate_seconds) <br>
+rm(weight_log_info) <br>
 
-#Minute Sleep uses "Value" and "Logid" columns. I don't know what these mean so can't use them in my analysis.
+`#check for duplicates in data sets` <br>
+sum(duplicated(daily_activity)) `#0 duplicates` <br>
+sum(duplicated(hourly_data)) `#0 duplicates` <br>
+sum(duplicated(minute_data)) `#525 duplicates` <br>
 
-#rename columns in minute_data to match hourly_data
-# Rename the column B to "NewName"
-colnames(minute_data)[colnames(minute_data) == "Intensity"] <- "TotalIntensity"
-colnames(minute_data)[colnames(minute_data) == "value"] <- "Value"
-colnames(minute_data)[colnames(minute_data) == "Steps"] <- "StepTotal
-![image](https://github.com/user-attachments/assets/4f9ea222-c6f8-4ed8-99d9-f5440016d0f1)
+`#Remove all duplicates and missing data` <br>
+daily_activity <- daily_activity %>% <br>
+  distinct() %>% <br>
+  drop_na() <br>
+hourly_data <- hourly_data %>% <br>
+  distinct() %>% <br>
+  drop_na() <br>
+minute_data <- minute_data %>% <br>
+  distinct() %>% <br>
+  drop_na() <br>
 
+`#Run this code to double check & there are now no duplicates` <br>
+sum(duplicated(dailyActivity_merged)) #0 duplicates <br>
+sum(duplicated(hourly_data)) #0 duplicates <br>
+sum(duplicated(minute_data)) #0 duplicates <br>
 
+`#Minute Sleep uses "Value" and "Logid" columns. I don't know what these mean so can't use them in my analysis.` <br>
+
+`#rename columns in minute_data to match hourly_data format` <br>
+`# Rename the column B to "NewName"` <br>
+colnames(minute_data)[colnames(minute_data) == "Intensity"] <- "TotalIntensity" <br>
+colnames(minute_data)[colnames(minute_data) == "value"] <- "Value" <br>
+colnames(minute_data)[colnames(minute_data) == "Steps"] <- "StepTotal <br>
 
 
