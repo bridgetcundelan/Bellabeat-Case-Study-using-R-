@@ -368,3 +368,6 @@ ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
 
 `#majority of Bellabeat users are considered sedentary based on step count (under 5k a day) Bellabeat could set step count goals for users and send out reminders when they need to get up and walk to hit their goals.`  <br>
 ![User Type by Activity](https://github.com/user-attachments/assets/6e175223-bbb7-45d4-a4a6-e6b02c57b3cd)
+
+### Act <br>
+
