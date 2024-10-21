@@ -362,34 +362,25 @@ ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
 - Based on step count recommendations from the CDC, a majority of users are considered "sedentary" and do not get enough steps per day. <br>  
 - Step count averages vary throughout the week. Days ordered from highest to lowest step count are: Wednesday, Monday, Saturday, Thursday, Friday, Sunday, and lastly Tuesday <br>
 - There is a positive correlation between total steps taken and amount of calories burned. <br>
-- My visualizayion shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to excersize and start their day, and many people excersize again during their lunch hour and after work. <br>
-- Same peaks and dips as average intensities per hour. Since the graph his similar spikes, it suggests a relationship between average intensity and calories burned.  <br>
+- Average intensities by hour start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to excersize and start their day, and many people excersize again during their lunch hour and after work. <br>
+- Average calories by hour show the same peaks and dips as average intensities per hour. Since the graphs have similar lines, it suggests a relationship between average intensity and calories burned. As a user has a higher intensity of excersize, they burn more calories. <br>
 - Less than half of the participants had sleep and weight log data to share. <br> 
 
-
-Guiding questions 
-•	●  What is your nal conclusion based on your analysis? 
-•	●  How could your team and business apply your insights? 
-•	●  What next steps would you or your stakeholders take based on your ndings? 
-•	●  Is there additional data you could use to expand on your ndings? 
-Key tasks 
-•	●  Create your po folio. 
-•	●  Add your case study. 
-•	●  Practice presenting your case study to a friend or family member. 
-Deliverable 
-Your top high-level insights based on your analysis
-![image](https://github.com/user-attachments/assets/c1d4695f-ae13-4c2f-a90f-10acce871026)
+<b> Suggested next steps for Bellabeat marketing team:</b> <br>
+- Encourage users to hit their 10k step goal for the day by sending out push notifications on watch & app <br>
+- Smart device users tend to be health conscious & goal oriented. Set daily and weekly goals for calories and easily send tracking data to watch & app and reminders if they haven't hit their goals. - - Look at what leaders in the category are doing (i.e. Apple). Gamefy the experience by setting goals for users & awarding badges if they hit them. <br>
+- Use historical trends to suggest future goals for calories and steps. <br>
+- Determine why less participants use the sleep tracking. Possible reasons could be an uncomfortable band to sleep in, users might want to charge watch when they are sleeping, they might not understand the importance of tracking sleep. Consider sending out a survery to users to determine the reasoning. Create educational materials like consumer emails or blog posts. <br>
+- Determine why less participants use the weight log features, consider sending out a survey. Is it complicated or cumbersum to record weight? Does the company need to educate consumer will emails or blog posts. <br>
+-Send out targeted marketing efforts to each category of user (i.e. from active to sedentary) to help them optimize their smart device and get results. <br>
+-Make sleep/ weight data easily to integrate into app. <br>
+-Encourage new customers to purchase device. Pain point could be wanting to hit health goals but need a coach. Want to know what to do to burn calories & therefore loose weight. <br>
 
 Reminder- Business Objectives:
 1) What are some trends in smart device usage?
 2) How could these trends apply to Bellabeat customers?
 3) How could these trends help influence Bellabeat's marketing strategy?
 
-4) make sleep easier to trakc?? since there were so few participants, encourage to wear sleeping to get more data & weight log data. Maybe send a survey to ask why? Maybe sleep--- they charge when sleep, uncomphy, need a break? Make sure it charges fast or come out with sleep band that is comfortable and sleep data can be incorporated into the app. Comfortable sleep band. 
-
-5) A majority of Bellabeat users are considererd sededntary with relation to their steps. Bellabeat could set step count goals for users and send out reminders when they need to get up and walk to hit their goals.
-6) - Why do people buy smart devices? health conscsious. Goal oriented. Gamefy device and create awards and badges (look at what apple is doing as they are the leader in the category).
-  -Show marketing strategies for current customers, As well as to gain new customers.
 
 3. Content Marketing
 Educational Content: Create blogs, videos, and infographics that explain the benefits of smartwatches, how to use features, and health tips.
