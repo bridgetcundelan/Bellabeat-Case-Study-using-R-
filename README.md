@@ -4,6 +4,7 @@
   <img src="https://user-images.githubusercontent.com/81607668/127726632-fe6da755-6267-4227-8740-77d3275f446e.png" alt="Bellabeat" width="500" /> <br>
   <img src="https://github.com/user-attachments/assets/e2a82ebd-6a2e-40ae-aa8f-792ed4829eba" alt="image" width="300" />
 </p>
+
 ### Background:
 Urška Sršen and Sando Mur founded Bellabeat, a high-tech company that manufactures health-focused smart products. Sršen used her background as an artist to develop beautifully designed technology that informs and inspires women around the world. Collecting data on activity, sleep, stress, and reproductive health has allowed Bellabeat to empower women with knowledge about their own health and habits. Since it was founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women. They focus on 5 smart products: the Bellabeat app, Leaf, Time, Spring, and the Bellabeat membership. 
 
@@ -20,12 +21,12 @@ R for Data Cleaning, Data Transformation, Data Analysis, and Data Visualisation.
 
 ### The data set: 
 The data set is publicly available on [Kaggle](https://www.kaggle.com/arashnic/fitbit).
-It contains 11 csv files containing FitBit user data. 
+It contains 11 csv files of FitBit user data. 
 
 ### Prepare the Data:
 This Kaggle data set contains personal fitness tracker data from 30 FitBit users. Each eligible Fitbit user consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explor users’ habits. <br>
 <b>ROCCC Analysis:</b> <br>
-- Reliability: Sampling bias may be present as it is unclear how users were chosen to participate. Additionally, those willing to make their data public are likely to be heavier FitBit users, which may skew the data. Finally, the data set does not specify gender. Since Bellabeat is a smart device company for women, it would be helpful to be able to segment that group. <br>
+- Reliability: Sampling bias may be present as it is unclear how users were chosen to participate. Furthermore, those willing to make their data public are likely to be more engaged FitBit users, which may skew the data. Finally, the data set does not specify gender. Since Bellabeat is a smart device company for women, it would be helpful to be able to segment that group. <br>
 - Original: low, the data was collected from a third party survey, Amazon Mechanical Turk.
 - Comprehensiveness: 30 users consented to share their data, which is the minimum sample size you should use for analysis. Two data sets only had data for 11-14 users ("weight_log_info_merged.csv & minuteSleep_merged.csv) so I removed those sets from my analysis. However, the data I used was comprehensive enough to allow me to answer the business objectives <br>
 - Current: Data is from 2016, so it may be outdated as smart device technology has evolved. Additionally, the data was collected during a short 3 month period, from 3.12.2016-5.12.2016. Data would be more reliable if it was collected over a longer period of time of at least a year. 
@@ -207,7 +208,7 @@ daily_activity %>%   <br>
   summary()  <br>
 `#Key findings: max daily steps is 28497 and mean is 6547. For reference- CDC recommends step goal of 10k per day.`  <br>
 
-`#What day of week are users most active?`  <br>
+`#Answer question: what day of week are users most active?`  <br>
 `#First need to convert the date column from string to Date format in "daily_activity"data frame`<br>
 daily_activity <- daily_activity %>%`  <br>
   mutate(ActivityDate = mdy(ActivityDate),  `# Convert to Date`<br> 
@@ -221,9 +222,9 @@ summary_data <- daily_activity %>%  <br>
   print(summary_data)  <br>
 
 `#Here is the summarized step data in a tibble. Most steps were taken on Wednesaday.`<br>
-`#A visualization is provided in the share sub-section below.
-  `#This also saved a new dataframe called summary_data`<br>
-  `#A  tibble: 7 × 2`  <br>
+`#A corresponding visualization is provided in the "share" section below.
+`#This also saved a new dataframe called summary_data`<br>
+`#A  tibble: 7 × 2`  <br>
   Weekday   StepSummary  <br>
   <chr>           <dbl>  <br>
     1 Friday          6738.  <br>
@@ -234,7 +235,7 @@ summary_data <- daily_activity %>%  <br>
   6 Tuesday         4915.  <br>
   7 Wednesday       7511.  <br>
 
-`#Now will look at hourly data to determine what time of day are people most active? Using column hourly intensities.`  <br>
+`#Now I will look at hourly data to determine what time of day are people most active. Using column hourly intensities.`  <br>
 `#First need to split ActivityHour column into date and hour`  <br>
 `#Split the datetime column into date and hour`  <br>
 hourly_data <- hourly_data %>%  <br>
@@ -247,17 +248,17 @@ hourly_data <- hourly_data %>%  <br>
 summary_hourly_intensities <- hourly_data %>%  <br>
   group_by(Hour) %>%  <br>
   summarize(TotalIntensity = mean(TotalIntensity), .groups = 'drop')  <br>
-`#A visualization of this data is included in the share sub-section below. <br>
+`#A corresponding visualization of this data is included in the "share" section below. <br>
 
-`#Taking a step further, is there a correlation between calories burned and hour of day?`  <br>
-`#I have included a visualization of this in the share sub-section below.` <br>
+`#Taking it a step further, is there a correlation between calories burned and hour of day?`  <br>
+`#A corresponding visualization is included in the "share" section below.` <br>
 summary_hourly_calories<- hourly_data %>%  <br>
   group_by(Hour) %>%  <br>
   summarize(Calories = mean(Calories), .groups = 'drop')  <br>
 
-`#Next I will creata Activity level by category showing distribution of users based on average daily step count.`
-`#A visualization of this data is provided in the share sub-section below` <br>
-`#Based on CDC recommendations of step count per day, I will use the following step counts to divide users into 5 categories`  <br>
+`#Next, using the daily_activity data set, I will segment users into groups based on average daily step count.`
+`#A corresponding visualization of this data is provided in the "share" section below` <br>
+`#Based on CDC recommendations of step count per day, I will use the following step count chart to divide users into 5 categories`  <br>
 ![Picture1](https://github.com/user-attachments/assets/e1112b25-e993-41d5-a367-cb5a0747df19)  <br>`
 
 steps <- daily_activity %>%  <br>
@@ -289,22 +290,20 @@ user_type_sum <- steps %>%  <br>
   summarise(total= n()) %>%  <br>
   mutate(total_percent = round(total * 100 / sum(total), 1))  <br>
 print(user_type_sum)  <br>
-#Here is a tibble showing summary of user types  <br>
-`#A tibble: 4 × 3`  <br>
+`#A tibble: 4 × 3 showing summary of user types`  <br>
 user_type      total total_percent  <br>
 <chr>          <int>         <dbl>  <br>
 1 fairly active      9          25.7  <br>
 2 lightly active     6          17.1  <br>
 3 sedentary         14          40    <br>
 4 very active        6          17.1  <br>
-`#This analysis tells me the majority of users are considered "sedentary" in relation to step count, followed by "fairly active", then "lightly active" and "fairly active" are the lowest percentage of users.
+`#This analysis tells me that the majority of users are considered "sedentary" in relation to step count, followed by "fairly active", and finally "lightly active" and "fairly active" make up the lowest percentage of users.
 
 ### Share:
 `#Make a visualization to determine if there is a correlation between steps taken & calories burned`  <br>
 ggplot(data = daily_activity, aes(x = TotalSteps, y = Calories)) +  <br>
   geom_point() + geom_smooth() + labs(title ="Total Steps vs. Calories")  <br>
 `#The visualization shows a positive correlation between total steps taken and the amount of calories burned.`  <br>
-
 ![Total Steps vs Calories 2](https://github.com/user-attachments/assets/9bb04dfc-0c1a-4c72-98d1-d7ea4db2e424)
 
 `#Now that we have analyzed the data to determine the steps taken for each day of the week, I will make a visualization to better understand the data.`  <br>
@@ -316,7 +315,7 @@ ggplot(summary_data, aes(x = reorder(Weekday, StepSummary), y = StepSummary, fil
   scale_y_continuous(labels = comma) +  # Format y-axis numbers with commas  <br>
   theme_minimal() +  <br>
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  `#Rotate x-axis labels for better readability`  <br>
-
+  `Tuesday & Wednesday show the lowest step count, while Wenesday & Saturday show the highest step count.` <br>
 ![Total Steps per Day Updated](https://github.com/user-attachments/assets/027865ce-593e-451b-b882-17274dc46c65)
 
 
@@ -328,7 +327,7 @@ ggplot(summary_hourly_intensities, aes(x = Hour, y = TotalIntensity)) +  <br>
        x = "Hour of the Day",  <br>
        y = "Average Intensity") +  <br>
   theme_minimal()  <br>
-`#This graph shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and 7PM, and then dip substantially. People likely waking up early to excersize and start there day, and many people excersize again during their lunch hour and after work.`  <br>
+`#This graph shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to excersize and start their day, and many people excersize again during their lunch hour and after work.`  <br>
 ![Intensities by Hour](https://github.com/user-attachments/assets/304d0e62-65c6-491f-95ec-88a6c2901ad8)  <br>
 
 
@@ -344,8 +343,6 @@ ggplot(summary_hourly_calories, aes(x = Hour, y = Calories)) +  <br>
 ![Calories Burned Per Hour](https://github.com/user-attachments/assets/e549f5a9-3df9-451e-ab08-8f7834198b24)  <br>
 
 
-
-
 `# Create a pie chart to visualize user type by activity`  <br>
 ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +  <br>
   geom_bar(stat = "identity", width = 1, color = "white") +  <br>
@@ -357,7 +354,7 @@ ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
   labs(title = "User Type by Activity") +  <br>
   guides(fill = guide_legend(title = "Activity Type"))  <br>
 
-`#majority of Bellabeat users are considered sedentary based on step count (under 5k a day) Bellabeat could set step count goals for users and send out reminders when they need to get up and walk to hit their goals.`  <br>
+`#A majority of Bellabeat users are considered sedentary based on step count (under 5k a day).`  <br>
 ![User Type by Activity](https://github.com/user-attachments/assets/6e175223-bbb7-45d4-a4a6-e6b02c57b3cd)
 
 ### Act <br>
@@ -377,4 +374,8 @@ Your top high-level insights based on your analysis
 Reminder- Business Objectives:
 1) What are some trends in smart device usage?
 2) How could these trends apply to Bellabeat customers?
-3) How could these trends help influence Bellabeat's marketing strategy? 
+3) How could these trends help influence Bellabeat's marketing strategy?
+
+4) make sleep easier to trakc?? since there were so few participants, encourage to wear sleeping to get more data & weight log data. Maybe send a survey to ask why?
+
+5) A majority of Bellabeat users are considererd sededntary with relation to their steps. Bellabeat could set step count goals for users and send out reminders when they need to get up and walk to hit their goals.
