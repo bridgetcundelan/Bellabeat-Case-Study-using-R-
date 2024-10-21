@@ -1,10 +1,9 @@
-# Bellabeat: How Can a Wellness Technology Company Play It Smart? 
-
-## A Google Data Analytics Professional Certificate Capstone Project
-
-![Bellabeat](https://user-images.githubusercontent.com/81607668/127726632-fe6da755-6267-4227-8740-77d3275f446e.png)
-![image](https://github.com/user-attachments/assets/e2a82ebd-6a2e-40ae-aa8f-792ed4829eba)
-
+# Bellabeat: How Can a Wellness Technology Company Play It Smart?</h1>
+## A Google Data Analytics Professional Certificate Capstone Project</h2>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/81607668/127726632-fe6da755-6267-4227-8740-77d3275f446e.png" alt="Bellabeat" width="500" /> <br>
+  <img src="https://github.com/user-attachments/assets/e2a82ebd-6a2e-40ae-aa8f-792ed4829eba" alt="image" width="300" />
+</p>
 ### Background:
 Urška Sršen and Sando Mur founded Bellabeat, a high-tech company that manufactures health-focused smart products. Sršen used her background as an artist to develop beautifully designed technology that informs and inspires women around the world. Collecting data on activity, sleep, stress, and reproductive health has allowed Bellabeat to empower women with knowledge about their own health and habits. Since it was founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women. They focus on 5 smart products: the Bellabeat app, Leaf, Time, Spring, and the Bellabeat membership. 
 
