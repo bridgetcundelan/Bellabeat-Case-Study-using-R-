@@ -1,5 +1,5 @@
-# Bellabeat: How Can a Wellness Technology Company Play It Smart?</h1>
-## A Google Data Analytics Professional Certificate Capstone Project</h2>
+# Bellabeat: How Can a Wellness Technology Company Play It Smart?
+## A Google Data Analytics Professional Certificate Capstone Project
 <p align="center">
   <img src="https://user-images.githubusercontent.com/81607668/127726632-fe6da755-6267-4227-8740-77d3275f446e.png" alt="Bellabeat" width="500" /> <br>
   <img src="https://github.com/user-attachments/assets/e2a82ebd-6a2e-40ae-aa8f-792ed4829eba" alt="image" width="300" />
@@ -358,6 +358,15 @@ ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
 ![User Type by Activity](https://github.com/user-attachments/assets/6e175223-bbb7-45d4-a4a6-e6b02c57b3cd)
 
 ### Act <br>
+<b>Key Trends & Findings:</b> <br> 
+- Based on step count recommendations from the CDC, a majority of users are considered "sedentary" and do not get enough steps per day. <br>  
+- Step count averages vary throughout the week. Days ordered from highest to lowest step count are: Wednesday, Monday, Saturday, Thursday, Friday, Sunday, and lastly Tuesday <br>
+- There is a positive correlation between total steps taken and amount of calories burned. <br>
+- My visualizayion shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to excersize and start their day, and many people excersize again during their lunch hour and after work. <br>
+- Same peaks and dips as average intensities per hour. Since the graph his similar spikes, it suggests a relationship between average intensity and calories burned.  <br>
+- Less than half of the participants had sleep and weight log data to share. <br> 
+
+
 Guiding questions 
 •	●  What is your nal conclusion based on your analysis? 
 •	●  How could your team and business apply your insights? 
@@ -376,6 +385,16 @@ Reminder- Business Objectives:
 2) How could these trends apply to Bellabeat customers?
 3) How could these trends help influence Bellabeat's marketing strategy?
 
-4) make sleep easier to trakc?? since there were so few participants, encourage to wear sleeping to get more data & weight log data. Maybe send a survey to ask why? Maybe sleep--- they charge when sleep, uncomphy, need a break? Make sure it charges fast or come out with sleep band that is comfortable and sleep data can be incorporated into the app. 
+4) make sleep easier to trakc?? since there were so few participants, encourage to wear sleeping to get more data & weight log data. Maybe send a survey to ask why? Maybe sleep--- they charge when sleep, uncomphy, need a break? Make sure it charges fast or come out with sleep band that is comfortable and sleep data can be incorporated into the app. Comfortable sleep band. 
 
 5) A majority of Bellabeat users are considererd sededntary with relation to their steps. Bellabeat could set step count goals for users and send out reminders when they need to get up and walk to hit their goals.
+6) - Why do people buy smart devices? health conscsious. Goal oriented. Gamefy device and create awards and badges (look at what apple is doing as they are the leader in the category).
+  -Show marketing strategies for current customers, As well as to gain new customers.
+
+3. Content Marketing
+Educational Content: Create blogs, videos, and infographics that explain the benefits of smartwatches, how to use features, and health tips.
+User Stories: Share testimonials and case studies showcasing real-life benefits and experiences.
+
+5. Email Marketing
+Personalized Campaigns: Send targeted emails with product updates, special offers, and tailored content based on user preferences.-- based on what category people are in.
+-Integrate with app and other devices 
