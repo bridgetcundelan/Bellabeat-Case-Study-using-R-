@@ -376,6 +376,6 @@ Reminder- Business Objectives:
 2) How could these trends apply to Bellabeat customers?
 3) How could these trends help influence Bellabeat's marketing strategy?
 
-4) make sleep easier to trakc?? since there were so few participants, encourage to wear sleeping to get more data & weight log data. Maybe send a survey to ask why?
+4) make sleep easier to trakc?? since there were so few participants, encourage to wear sleeping to get more data & weight log data. Maybe send a survey to ask why? Maybe sleep--- they charge when sleep, uncomphy, need a break? Make sure it charges fast or come out with sleep band that is comfortable and sleep data can be incorporated into the app. 
 
 5) A majority of Bellabeat users are considererd sededntary with relation to their steps. Bellabeat could set step count goals for users and send out reminders when they need to get up and walk to hit their goals.
