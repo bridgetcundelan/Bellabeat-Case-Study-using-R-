@@ -315,7 +315,7 @@ ggplot(summary_data, aes(x = reorder(Weekday, StepSummary), y = StepSummary, fil
   scale_y_continuous(labels = comma) +  # Format y-axis numbers with commas  <br>
   theme_minimal() +  <br>
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  `#Rotate x-axis labels for better readability`  <br>
-  `Tuesday & Wednesday show the lowest step count, while Wenesday & Saturday show the highest step count.` <br>
+  `Tuesday & Sunday show the lowest step count, while Monday & Wednesday show the highest step count.` <br>
 ![Total Steps per Day Updated](https://github.com/user-attachments/assets/027865ce-593e-451b-b882-17274dc46c65)
 
 
