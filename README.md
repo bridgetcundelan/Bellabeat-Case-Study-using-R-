@@ -327,7 +327,7 @@ ggplot(summary_hourly_intensities, aes(x = Hour, y = TotalIntensity)) +  <br>
        x = "Hour of the Day",  <br>
        y = "Average Intensity") +  <br>
   theme_minimal()  <br>
-`#This graph shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to excersize and start their day, and many people excersize again during their lunch hour and after work.`  <br>
+`#This graph shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to work out and start their day, and many people work out again during their lunch hour and after work.`  <br>
 ![Intensities by Hour](https://github.com/user-attachments/assets/304d0e62-65c6-491f-95ec-88a6c2901ad8)  <br>
 
 
