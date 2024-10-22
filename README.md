@@ -362,30 +362,15 @@ ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
 - Based on step count recommendations from the CDC, a majority of users are considered "sedentary" and do not get enough steps per day. <br>  
 - Step count averages vary throughout the week. Days ordered from highest to lowest step count are: Wednesday, Monday, Saturday, Thursday, Friday, Sunday, and lastly Tuesday <br>
 - There is a positive correlation between total steps taken and amount of calories burned. <br>
-- Average intensities by hour start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to excersize and start their day, and many people excersize again during their lunch hour and after work. <br>
-- Average calories by hour show the same peaks and dips as average intensities per hour. Since the graphs have similar lines, it suggests a relationship between average intensity and calories burned. As a user has a higher intensity of excersize, they burn more calories. <br>
+- Average intensities by hour start to pick up just before 5AM and gradually increase until they spike around noon and again at 7PM before they dip substantially. I hypothesize that users likely wake up early to exercise and start their day, and many people exercise again during their lunch hour and after work. <br>
+- Average calories by hour show the same peaks and dips as average intensities per hour. Since the graphs have similar lines, it suggests a relationship between average intensity and calories burned. As a user has a higher intensity of exercise, they burn more calories. <br>
 - Less than half of the participants had sleep and weight log data to share. <br> 
 
 <b> Suggested next steps for Bellabeat marketing team:</b> <br>
-- Encourage users to hit their 10k step goal for the day by sending out push notifications on watch & app <br>
-- Smart device users tend to be health conscious & goal oriented. Set daily and weekly goals for calories and easily send tracking data to watch & app and reminders if they haven't hit their goals. - - Look at what leaders in the category are doing (i.e. Apple). Gamefy the experience by setting goals for users & awarding badges if they hit them. <br>
-- Use historical trends to suggest future goals for calories and steps. <br>
-- Determine why less participants use the sleep tracking. Possible reasons could be an uncomfortable band to sleep in, users might want to charge watch when they are sleeping, they might not understand the importance of tracking sleep. Consider sending out a survery to users to determine the reasoning. Create educational materials like consumer emails or blog posts. <br>
-- Determine why less participants use the weight log features, consider sending out a survey. Is it complicated or cumbersum to record weight? Does the company need to educate consumer will emails or blog posts. <br>
--Send out targeted marketing efforts to each category of user (i.e. from active to sedentary) to help them optimize their smart device and get results. <br>
--Make sleep/ weight data easily to integrate into app. <br>
--Encourage new customers to purchase device. Pain point could be wanting to hit health goals but need a coach. Want to know what to do to burn calories & therefore loose weight. <br>
-
-Reminder- Business Objectives:
-1) What are some trends in smart device usage?
-2) How could these trends apply to Bellabeat customers?
-3) How could these trends help influence Bellabeat's marketing strategy?
-
-
-3. Content Marketing
-Educational Content: Create blogs, videos, and infographics that explain the benefits of smartwatches, how to use features, and health tips.
-User Stories: Share testimonials and case studies showcasing real-life benefits and experiences.
-
-5. Email Marketing
-Personalized Campaigns: Send targeted emails with product updates, special offers, and tailored content based on user preferences.-- based on what category people are in.
--Integrate with app and other devices 
+- Personalized goal setting: Encourage users to hit their 10k step goal for the day by sending out reminders. <br>
+- Gamification & engagement: Smart device users tend to be health conscious & goal oriented. Set daily and weekly goals for calories, step count, sleep, etc. and allow users to easily track data in their app. Bellabeat could gamefy the experience by setting up challenges and giving users awards if they meet their goals. Leaders in the category like Apple are using a simiilar strategy. <br>
+- Use historical trends to suggest personalized fitness goals for users. <br>
+- Determine why few participants use the sleep tracking feature by sending out a survey. Possible reasons: band is uncomfortable to sleep in (Bellabeat could create comfortable sleep band), users might want to charge device when they are sleeping, or finally users might not understand the importance of tracking sleep. Consider educational materials like consumer emails or blog posts. <br>
+- Determine why few participants use the weight log feature by sending out a survey. Is it complicated or cumbersum to record weight? Does the company need to educate consumers with emails or blog posts? <br>
+-Send out targeted marketing emails to each category of user (i.e. from active to sedentary) to help them optimize their smart device and get results. <br>
+-Encourage new consumers to purchase Bellabeat devices. Consumers may have health goals they want to hit but don't know how to reach them. Bellabeat should emphasize that their devices are able to track comprehensive health data and send personalized goals & coaching along the way. <br>
