@@ -111,7 +111,7 @@ hourly_data <- hourlyCalories_merged %>% <br>
   full_join(hourlySteps_merged, by = c("Id", "ActivityHour")) <br>
 print(hourly_data) <br>
 
-`#Remove original data sets now that they are merged` <br>
+`#Remove original data frames now that they are merged` <br>
 rm(hourlyCalories_merged) <br>
 rm(hourlyIntensities_merged) <br>
 rm(hourlySteps_merged) <br>
