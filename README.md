@@ -277,6 +277,7 @@ steps <- daily_activity %>%  <br>
 head(steps)  <br>
 `#A tibble: 6 × 4 showung results`  <br>
 Id total_steps avg_daily_cal user_type    <br>  
+<dbl>       <dbl>         <dbl> <chr>    <br>     
   1 1503960366      11641.         1796. very active   <br> 
 2 1624580081       4226.         1353. sedentary      <br>
 3 1644430081       9275.         2916. fairly active  <br>
@@ -296,7 +297,7 @@ user_type      total total_percent  <br>
 2 lightly active     6          17.1  <br>
 3 sedentary         14          40    <br>
 4 very active        6          17.1  <br>
-`#This analysis tells me that the majority of users are considered "sedentary" in relation to step count, followed by "fairly active", and finally "lightly active" and "fairly active" make up the lowest percentage of users.
+`#This analysis tells me that the majority of users are considered "sedentary" in relation to step count, followed by "fairly active." "Lightly active" and "fairly active" make up the lowest percentage of users.`
 
 ### Share:
 `#Make a visualization to determine if there is a correlation between steps taken & calories burned`  <br>
@@ -314,7 +315,7 @@ ggplot(summary_data, aes(x = reorder(Weekday, StepSummary), y = StepSummary, fil
   scale_y_continuous(labels = comma) +  # Format y-axis numbers with commas  <br>
   theme_minimal() +  <br>
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  `#Rotate x-axis labels for better readability`  <br>
-  `Tuesday & Sunday show the lowest step count, while Monday & Wednesday show the highest step count.` <br>
+`#Tuesday & Sunday show the lowest step count, while Monday & Wednesday show the highest step count.` <br>
 ![Total Steps per Day Updated](https://github.com/user-attachments/assets/027865ce-593e-451b-b882-17274dc46c65)
 
 
@@ -326,7 +327,7 @@ ggplot(summary_hourly_intensities, aes(x = Hour, y = TotalIntensity)) +  <br>
        x = "Hour of the Day",  <br>
        y = "Average Intensity") +  <br>
   theme_minimal()  <br>
-`#This graph shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and 7PM before they dip substantially. I hypothesize that users likely wake up early to work out and start their day, and many people work out again during their lunch hour and after work.`  <br>
+`#This graph shows that average intensities start to pick up just before 5AM and gradually increase until they spike around noon and again at 7PM before they dip substantially. I hypothesize that users likely wake up early to work out and start their day, and many people work out again during their lunch hour and after work.`  <br>
 ![Intensities by Hour](https://github.com/user-attachments/assets/304d0e62-65c6-491f-95ec-88a6c2901ad8)  <br>
 
 
@@ -366,10 +367,9 @@ ggplot(data = user_type_sum, aes(x = "", y = total_percent, fill = user_type)) +
 - Less than half of the participants had sleep and weight log data to share. <br> 
 
 <b> Suggested next steps for Bellabeat marketing team:</b> <br>
-- Personalized goal setting: Encourage users to hit their 10k step goal for the day by sending out reminders. <br>
+- Personalized goal setting: Use historical trends to suggest personalized fitness goals for users. This could include setting a 10k step goal per day and sending out push notifications to remind users to hit their steps. <br>
 - Gamification & engagement: Smart device users tend to be health conscious & goal oriented. Set daily and weekly goals for calories, step count, sleep, etc. and allow users to easily track data in their app. Bellabeat could gamefy the experience by setting up challenges and giving users awards if they meet their goals. Leaders in the category like Apple are using a simiilar strategy. <br>
-- Use historical trends to suggest personalized fitness goals for users. <br>
 - Determine why few participants use the sleep tracking feature by sending out a survey. Possible reasons: band is uncomfortable to sleep in (Bellabeat could create comfortable sleep band), users might want to charge device when they are sleeping, or finally users might not understand the importance of tracking sleep. Consider educational materials like consumer emails or blog posts. <br>
 - Determine why few participants use the weight log feature by sending out a survey. Is it complicated or cumbersum to record weight? Does the company need to educate consumers with emails or blog posts? <br>
 - Send out targeted marketing emails to each category of user (i.e. from active to sedentary) to help them optimize their smart device and get results. <br>
-- Encourage new consumers to purchase Bellabeat devices. Consumers may have health goals they want to hit but don't know how to reach them. Bellabeat should emphasize that their devices are able to track comprehensive health data and send personalized goals & coaching along the way. Bellabeat is unique among fitness trackers in that it tracks reproductive health  <br>
+- Emphasize Bellabeat's unique selling feature in their marketing efforts- it is able to track reproductive health trends. <br>
