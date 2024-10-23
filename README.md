@@ -197,8 +197,8 @@ minute_data %>%   <br>
          Calories,  <br>
          TotalIntensity, METs, StepTotal) %>%  <br>
   summary()  <br>
-`#Key findings: calories per min minimum 0, max 10, mean 1.12. Total intensity is min 0, max 3, mean .01.`  <br>
-`#METs min 0, mean 10.36, max 92.`  <br>
+`#Key findings: calories per minute is minimum 0, max 10, mean 1.12. Total intensity is min 0, max 3, mean .01.`  <br>
+`#METs is min 0, mean 10.36, max 92.`  <br>
 `#StepTotal is min 0, mean 1819, max 111.`  <br>
 
 daily_activity %>%   <br>
