@@ -248,7 +248,7 @@ hourly_data <- hourly_data %>%  <br>
 summary_hourly_intensities <- hourly_data %>%  <br>
   group_by(Hour) %>%  <br>
   summarize(TotalIntensity = mean(TotalIntensity), .groups = 'drop')  <br>
-`#A corresponding visualization of this data is included in the "share" section below. <br>
+`#A corresponding visualization of this data is included in the "share" section below.` <br>
 
 `#Taking it a step further, is there a correlation between calories burned and hour of day?`  <br>
 `#A corresponding visualization is included in the "share" section below.` <br>
@@ -259,7 +259,7 @@ summary_hourly_calories<- hourly_data %>%  <br>
 `#Next, using the daily_activity data set, I will segment users into groups based on average daily step count.`
 `#A corresponding visualization of this data is provided in the "share" section below` <br>
 `#Based on CDC recommendations of step count per day, I will use the following step count chart to divide users into 5 categories`  <br>
-![Picture1](https://github.com/user-attachments/assets/e1112b25-e993-41d5-a367-cb5a0747df19)  <br>`
+![Picture1](https://github.com/user-attachments/assets/e1112b25-e993-41d5-a367-cb5a0747df19)  <br>
 
 steps <- daily_activity %>%  <br>
   group_by(Id) %>%   <br>
@@ -277,7 +277,6 @@ steps <- daily_activity %>%  <br>
 head(steps)  <br>
 `#A tibble: 6 × 4 showung results`  <br>
 Id total_steps avg_daily_cal user_type    <br>  
-<dbl>       <dbl>         <dbl> <chr>    <br>     
   1 1503960366      11641.         1796. very active   <br> 
 2 1624580081       4226.         1353. sedentary      <br>
 3 1644430081       9275.         2916. fairly active  <br>
