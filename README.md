@@ -222,9 +222,9 @@ summary_data <- daily_activity %>%  <br>
   print(summary_data)  <br>
 
 `#Here is the summarized step data in a tibble. Most steps were taken on Wednesaday.`<br>
-`#A corresponding visualization is provided in the "share" section below.
-`#This also saved a new dataframe called summary_data`<br>
-`#A  tibble: 7 × 2`  <br>
+`#A corresponding visualization is provided in the "share" section below.` <br>
+`#This also saved a new dataframe called summary_data` <br> 
+`#A  tibble: 7 × 2` <br>
   Weekday   StepSummary  <br>
   <chr>           <dbl>  <br>
     1 Friday          6738.  <br>
