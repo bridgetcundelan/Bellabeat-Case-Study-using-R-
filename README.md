@@ -210,9 +210,9 @@ daily_activity %>%   <br>
 
 `#Answer question: what day of week are users most active?`  <br>
 `#First need to convert the date column from string to Date format in "daily_activity"data frame`<br>
-daily_activity <- daily_activity %>%`  <br>
-  mutate(ActivityDate = mdy(ActivityDate),  `# Convert to Date`<br> 
-         Weekday = weekdays(ActivityDate)) `#add a new column for day of week`  <br>
+daily_activity <- daily_activity %>% <br>
+  mutate(ActivityDate = mdy(ActivityDate),  `#Convert to Date` <br> 
+         Weekday = weekdays(ActivityDate)) `#add a new column for day of week` <br>
 
 `#Summarize steps per Weekday`  <br>
 summary_data <- daily_activity %>%  <br>
